@@ -10,9 +10,8 @@ const startBaileys = async () => {
   sock.ev.on('creds.update', saveCreds);
 
   sock.ev.on('connection.update', async (update) => {
-    const { connection, qr } = update;
-    if (qr) {
-      const code = await sock.requestPairingCode('YOUR_PHONE_NUMBER');
+    const { connection, code } = update;
+    if (code) {
       console.log('Kode pairing:', code);
     }
     if (connection === 'open') {
