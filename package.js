@@ -1,0 +1,13 @@
+{
+"name": "baileys-bot",
+"version": "1.0.0",
+"main": "index.js",
+"type": "commonjs",
+"scripts": {
+"start": "node index.js"
+},
+"dependencies": {
+"@whiskeysockets/baileys": "^6.7.5",
+"pino": "^8.17.0"
+}
+}
