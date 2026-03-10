@@ -45,4 +45,26 @@ console.log("✅ Bot Connected")
 
 if(!sock.authState.creds.registered){
 
-rl.question("Masukkan nomor WhatsApp (conto
+rl.question("Masukkan nomor WhatsApp (contoh 628xxxx): ", async(number)=>{
+
+const code = await sock.requestPairingCode(number)
+
+console.log("Pairing Code:", code)
+
+})
+
+}
+
+sock.ev.on("messages.upsert", ({ messages })=>{
+
+const msg = messages[0]
+
+if(!msg.message) return
+
+console.log("Pesan dari:", msg.key.remoteJid)
+
+})
+
+}
+
+startBot()
